@@ -992,7 +992,7 @@ unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
     bnResult *= 2;
     while (nTime > 0 && bnResult < bnTargetLimit)
     {
-        // Maximum 200% adjustment per day...
+        // Maximum 20000% adjustment per day...
         bnResult *= 2;
         nTime -= 24 * 60 * 60;
     }
@@ -2240,7 +2240,7 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
         {
             if (pfrom)
                 pfrom->Misbehaving(100);
-            return error("ProcessBlock() : block with too little %s", pblock->IsProofOfStake()? "proof-of-stake" : "proof-of-work");
+            //return error("ProcessBlock() : block with too little %s", pblock->IsProofOfStake()? "proof-of-stake" : "proof-of-work");
         }
     }
 
